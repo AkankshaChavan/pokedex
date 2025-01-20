@@ -11,10 +11,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #ffffff;
-    border: 1px solid #ddd;
+    background-color: #212529;
+    border: 1px solid #212529;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px #212529;
     width: 20%;
     padding: 10px;
     text-align: center;
@@ -22,25 +22,27 @@
   }
   
   .pokemon-card:hover {
-    transform: translateY(-5px);
+    transform: scale(1.015);
   }
   
   .pokemon-image {
-    width: 100px;
-    height: 100px;
+    width: auto;
     margin-bottom: 10px;
   }
   
   .pokemon-name {
-    font-size: 1.2rem;
+    font-size: 24px;
+    text-transform: uppercase;
     font-weight: bold;
     margin: 0;
-    color: #333;
+    color: #f8f9fabf;
   }
   
   .pokemon-id {
-    font-size: 0.9rem;
-    color: #666;
+    font-size: 20px;
+    color: #a4a4a4;
     margin: 5px 0 0;
+    width: 100%;
+    text-align: right;
   }
   
