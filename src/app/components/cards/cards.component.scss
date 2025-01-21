@@ -4,7 +4,6 @@
     justify-content: center;
     gap: 20px;
     padding: 20px;
-    background-color: #f5f5f5;
   }
   
   .pokemon-card {
@@ -45,4 +44,16 @@
     width: 100%;
     text-align: right;
   }
-  
+  .load-more-button{
+    width: 40%;
+    padding: 10px 20px;
+    display: block;
+    margin: 0 auto;
+    background: #212529;
+    color: #fff;
+    font-size: 16px;
+    border: 1px solid #212529;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }

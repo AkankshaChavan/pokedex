@@ -11,15 +11,17 @@ export class PokemonService {
 
   constructor(private http: HttpClient) {}
 
-  getPokemons(): Observable<any[]> {
-    return this.http.get<{ results: any[] }>(this.apiUrl).pipe(
-      map((response) =>
-        response.results.map((pokemon, index) => ({
-          name: pokemon.name,
-          id: index + 1, 
-          image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`,
-        }))
-      )
-    );
+  getPokemons(limit: number, offset: number): Observable<any[]> {
+    return this.http
+      .get<{ results: any[] }>(`${this.apiUrl}?limit=${limit}&offset=${offset}`)
+      .pipe(
+        map((response, index) =>
+          response.results.map((pokemon, i) => ({
+            name: pokemon.name,
+            id: offset + i + 1, 
+            image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${offset + i + 1}.png`,
+          }))
+        )
+      );
   }
 }

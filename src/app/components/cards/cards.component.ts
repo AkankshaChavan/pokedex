@@ -14,13 +14,20 @@ import { CommonModule } from '@angular/common';
 export class CardsComponent implements OnInit {
 
   pokemons: any[] = [];
+  currentOffset: number = 0; // Track the offset for pagination
+  limit: number = 20; // Number of cards per load
 
   constructor(private pokemonService: PokemonService) {}
 
   ngOnInit(): void {
-    this.pokemonService.getPokemons().subscribe({
+    this.loadMorePokemons(); // Load the first chunk on init
+  }
+
+  loadMorePokemons(): void {
+    this.pokemonService.getPokemons(this.limit, this.currentOffset).subscribe({
       next: (data) => {
-        this.pokemons = data;
+        this.pokemons = [...this.pokemons, ...data]; 
+        this.currentOffset += this.limit; 
       },
       error: (err) => {
         console.error('Error fetching Pokémon data:', err);
